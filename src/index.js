@@ -62,6 +62,7 @@ class Formsy extends React.Component {
   )
 
   getModel = () => {
+    
     const currentValues = this.getCurrentValues();
     return this.mapModel(currentValues);
   }
@@ -174,6 +175,7 @@ class Formsy extends React.Component {
       !(this.props.validationErrors && this.props.validationErrors[component.props.name]);
 
     return {
+      value,
       isRequired,
       isValid: isRequired ? false : isValid,
       error: (() => {
@@ -270,12 +272,17 @@ class Formsy extends React.Component {
   // validate the input and set its state. Then check the
   // state of the form itself
   validate = (component) => {
+    
+    const validation = this.runValidation(component);
     // Trigger onChange
     if (this.state.canChange) {
-      this.props.onChange(this.getCurrentValues(), this.isChanged());
+      this.props.onChange({
+	name: component.prosp.name,
+	value: validation.value,
+	isValid: validation.isValid,
+      }, this.isChanged());
     }
 
-    const validation = this.runValidation(component);
     // Run through the validations, split them up and call
     // the validator IF there is a value or it is required
     component.setState({
