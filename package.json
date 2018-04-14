@@ -16,11 +16,11 @@
     }
   },
   "license": "MIT",
-  "homepage": "https://github.com/formsy/formsy-react",
+  "homepage": "https://github.com/jediwattson/formsy-react",
   "bugs": "https://github.com/formsy/formsy-react/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/formsy/formsy-react.git"
+    "url": "https://github.com/jediwattson/formsy-react.git"
   },
   "author": "Christian Alfoni",
   "files": [
